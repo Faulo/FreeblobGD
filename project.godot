@@ -62,7 +62,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MonoCustomResourceRegistry/plugin.cfg", "res://addons/WAT/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/MonoCustomResourceRegistry/plugin.cfg", "res://addons/WAT/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [physics]
 
