@@ -22,19 +22,24 @@ namespace Freeblob {
         }
 
         public override void _Process(float delta) {
-            movement = GetMovement();
+            base._Process(delta);
 
             body.RotationDegrees = new Vector3(0, look.x, 0);
             head.RotationDegrees = new Vector3(look.y, 0, 0);
+        }
+
+        public override void _PhysicsProcess(float delta) {
+            base._PhysicsProcess(delta);
+
+            movement = GetMovement();
 
             velocity.x = movement.x;
             velocity.z = movement.y;
 
             MoveAndSlide(velocity);
         }
-
         Vector2 GetMovement() => new Vector2 {
-            x = Input.GetActionStrength("avatar_walk_right") - Input.GetActionStrength("avatar_walk_left"),
+            x = Input.GetActionStrength("avatar_walk_left") - Input.GetActionStrength("avatar_walk_right"),
             y = Input.GetActionStrength("avatar_walk_forward") - Input.GetActionStrength("avatar_walk_back")
         };
 
